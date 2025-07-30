@@ -1,0 +1,394 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "elements": [
+    {
+      "id": "A1",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 150,
+      "height": 60,
+      "strokeColor": "#0A72F5",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Prospección"
+    },
+    {
+      "id": "A2",
+      "type": "rectangle",
+      "x": 300,
+      "y": 100,
+      "width": 150,
+      "height": 60,
+      "strokeColor": "#0A72F5",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Contacto Inicial"
+    },
+    {
+      "id": "A3",
+      "type": "rectangle",
+      "x": 500,
+      "y": 100,
+      "width": 150,
+      "height": 60,
+      "strokeColor": "#0A72F5",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Presentación / Demo"
+    },
+    {
+      "id": "A4",
+      "type": "rectangle",
+      "x": 700,
+      "y": 100,
+      "width": 150,
+      "height": 60,
+      "strokeColor": "#0A72F5",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Negociación / Seguimiento"
+    },
+    {
+      "id": "A5",
+      "type": "rectangle",
+      "x": 900,
+      "y": 100,
+      "width": 150,
+      "height": 60,
+      "strokeColor": "#00CD9E",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Cierre de Venta"
+    },
+    {
+      "id": "A6",
+      "type": "rectangle",
+      "x": 900,
+      "y": 250,
+      "width": 150,
+      "height": 60,
+      "strokeColor": "#00CD9E",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Post-Venta / Soporte"
+    },
+    {
+      "id": "L1",
+      "type": "arrow",
+      "x": 250,
+      "y": 130,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "A1",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "A2",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "L2",
+      "type": "arrow",
+      "x": 450,
+      "y": 130,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "A2",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "A3",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "L3",
+      "type": "arrow",
+      "x": 650,
+      "y": 130,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "A3",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "A4",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "L4",
+      "type": "arrow",
+      "x": 850,
+      "y": 130,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "A4",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "A5",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "L5",
+      "type": "arrow",
+      "x": 975,
+      "y": 210,
+      "width": 0,
+      "height": 40,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "A5",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "A6",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [0, 40]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "currentItemStrokeColor": "#000000",
+    "currentItemBackgroundColor": "transparent",
+    "currentItemFillStyle": "hachure",
+    "currentItemStrokeWidth": 1,
+    "currentItemStrokeRoughness": 1,
+    "currentItemOpacity": 100,
+    "currentItemFontFamily": 1,
+    "currentItemFontSize": 20,
+    "currentItemTextAlign": "left",
+    "currentItemStartArrowhead": null,
+    "currentItemEndArrowhead": "arrow",
+    "scrollX": 0,
+    "scrollY": 0,
+    "zoom": {
+      "value": 1
+    },
+    "zenModeEnabled": false,
+    "gridSize": null,
+    "viewMode": "canvas",
+    "name": "Last.app Sales Flow",
+    "pendingImageElement": null,
+    "contextMenu": null,
+    "openMenu": null,
+    "lastPointerDownWith": "mouse",
+    "selectedElementIds": {},
+    "previousSelectedElementIds": {},
+    "multiElement": null,
+    "width": 1200,
+    "height": 600
+  },
+  "files": {}
+}

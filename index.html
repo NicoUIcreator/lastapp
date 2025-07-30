@@ -10,13 +10,14 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
     <style>
-        /* Definición de colores de Last.app */
+        /* Definición de colores de Last.app (adaptados de la imagen) */
         :root {
-            --lastapp-blue: #0A72F5; /* Azul principal del logo */
-            --lastapp-green: #00CD9E; /* Verde/Turquesa del logo */
-            --lastapp-dark-gray: #333333;
-            --lastapp-light-gray: #F5F5F5;
-            --lastapp-text-color: #4A4A4A;
+            --lastapp-blue: #0A72F5; /* Azul vibrante, similar al del logo */
+            --lastapp-green: #00CD9E; /* Verde/Turquesa vibrante del logo */
+            --lastapp-dark-gray: #333333; /* Texto principal y footer */
+            --lastapp-light-gray: #F5F5F5; /* Fondo de secciones claras */
+            --lastapp-text-color: #4A4A4A; /* Color de texto general */
+            --lastapp-bg-secondary: #E0F2FE; /* Un azul muy claro para fondos de estado */
         }
 
         body {
@@ -65,6 +66,7 @@
         .text-lastapp-green { color: var(--lastapp-green); }
         .bg-lastapp-light-gray { background-color: var(--lastapp-light-gray); }
         .bg-lastapp-dark-gray { background-color: var(--lastapp-dark-gray); }
+        .bg-lastapp-bg-secondary { background-color: var(--lastapp-bg-secondary); }
     </style>
 </head>
 <body class="antialiased">
@@ -89,8 +91,8 @@
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">Diagrama del Proyecto (Interactivo)</h2>
                 <p class="text-gray-600 mb-4">Aquí se presentaría un diagrama visual e interactivo del flujo de trabajo propuesto.</p>
                 <div class="responsive-iframe-container mx-auto">
-                    <iframe src="https://excalidraw.com/#json=YOUR_EXCALIDRAW_DIAGRAM_JSON_HERE,YOUR_EXCALIDRAW_LIB_JSON_HERE" title="Diagrama del Proyecto" allowfullscreen></iframe>
-                    </div>
+                    <iframe src="https://excalidraw.com/#json=YOUR_EXCALIDRAW_DIAGRAM_JSON_HERE" title="Diagrama del Proyecto" allowfullscreen></iframe>
+                </div>
                 <p class="text-sm text-gray-500 mt-4">Este iframe es un ejemplo. Aquí iría tu diagrama interactivo (Excalidraw, Whimsical, etc.).</p>
             </div>
         </div>
@@ -165,7 +167,7 @@
             <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">Una visión simplificada de cómo organizaría el seguimiento de mis interacciones con los clientes, con niveles de contacto y una agenda.</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-lastapp-light-gray p-6 rounded-lg shadow-md">
+                <div class="bg-lastapp-bg-secondary p-6 rounded-lg shadow-md">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Estado de Contacto con Clientes</h3>
                     <ul class="space-y-4">
                         <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
@@ -199,7 +201,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-lastapp-light-gray p-6 rounded-lg shadow-md">
+                <div class="bg-lastapp-bg-secondary p-6 rounded-lg shadow-md">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mi Agenda Semanal Ficticia</h3>
                     <ul class="space-y-4">
                         <li class="p-4 bg-white rounded-lg shadow-sm">
@@ -244,7 +246,6 @@
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjGwZZy/TyOSneOzrvjpUoJqq0Mkz8="
         crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -272,8 +273,8 @@
 
             // Colores para los sectores (inspirados en Last.app, pero variados para el mapa)
             const sectorColors = {
-                "Centro": "#0A72F5",     // Azul principal de Last.app
-                "Salamanca": "#00CD9E",  // Verde/Turquesa de Last.app
+                "Centro": "var(--lastapp-blue)",
+                "Salamanca": "var(--lastapp-green)",
                 "La Latina": "#FFC107",  // Un amarillo para contraste
                 "Chueca": "#DC3545",     // Un rojo para contraste
             };
@@ -284,7 +285,7 @@
             // Añadir capa de OpenStreetMap
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                maxZoom: 19, // Asegura que se pueda hacer zoom hasta un nivel detallado
+                maxZoom: 19,
             }).addTo(map);
 
             // Añadir marcadores de restaurantes al mapa
@@ -338,13 +339,23 @@
 
             const sectorLabels = Object.keys(sectorCounts);
             const sectorData = Object.values(sectorCounts);
-            const sectorBackgroundColors = sectorLabels.map(label => sectorColors[label]);
+            const sectorBackgroundColors = sectorLabels.map(label => {
+                // Asegurarse de obtener el valor CSS variable si está definida
+                const colorVar = sectorColors[label];
+                if (colorVar.startsWith('var(')) {
+                    return getComputedStyle(document.documentElement).getPropertyValue(colorVar.slice(4, -1));
+                }
+                return colorVar;
+            });
+
 
             const cuisineLabels = Object.keys(cuisineCounts);
             const cuisineData = Object.values(cuisineCounts);
             // Colores para tipos de cocina, puedes personalizarlos si quieres
             const cuisineBackgroundColors = [
-                '#0A72F5', '#00CD9E', '#FFC107', '#DC3545', '#6F42C1', '#20C997', '#FD7E14', '#6610F2',
+                getComputedStyle(document.documentElement).getPropertyValue('--lastapp-blue'),
+                getComputedStyle(document.documentElement).getPropertyValue('--lastapp-green'),
+                '#FFC107', '#DC3545', '#6F42C1', '#20C997', '#FD7E14', '#6610F2',
                 '#E83E8C', '#6C757D', '#17A2B8', '#F8F9FA'
             ];
 
@@ -358,7 +369,7 @@
                         label: 'Número de Restaurantes',
                         data: sectorData,
                         backgroundColor: sectorBackgroundColors,
-                        borderColor: sectorBackgroundColors.map(color => color.replace('0.8', '1')), // Bordes más sólidos
+                        borderColor: sectorBackgroundColors,
                         borderWidth: 1
                     }]
                 },
@@ -373,7 +384,7 @@
                         title: {
                             display: true,
                             text: 'Restaurantes por Sector',
-                            color: 'var(--lastapp-text-color)' // Usar color de texto definido
+                            color: 'var(--lastapp-text-color)'
                         }
                     },
                     scales: {
@@ -387,7 +398,7 @@
                                 color: 'var(--lastapp-text-color)'
                             },
                             grid: {
-                                color: 'rgba(0,0,0,0.05)' // Líneas de la cuadrícula más suaves
+                                color: 'rgba(0,0,0,0.05)'
                             }
                         }
                     }
@@ -419,7 +430,7 @@
                             position: 'right',
                             labels: {
                                 boxWidth: 20,
-                                color: 'var(--lastapp-text-color)' // Color de texto para la leyenda
+                                color: 'var(--lastapp-text-color)'
                             }
                         },
                         title: {
