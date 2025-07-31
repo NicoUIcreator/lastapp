@@ -3,14 +3,39 @@
   "version": 2,
   "elements": [
     {
-      "id": "A1",
+      "id": "intro",
       "type": "rectangle",
-      "x": 100,
-      "y": 100,
-      "width": 150,
-      "height": 60,
+      "x": 200,
+      "y": 50,
+      "width": 1000,
+      "height": 50,
       "strokeColor": "#0A72F5",
-      "backgroundColor": "#E0F2FE",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Plan de Crecimiento para Last.app"
+    },
+    {
+      "id": "cl_points",
+      "type": "rectangle",
+      "x": 200,
+      "y": 150,
+      "width": 250,
+      "height": 100,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "#F5F5F5",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "roughness": 1,
@@ -25,39 +50,37 @@
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "text": "Prospección"
+      "text": "Puntos Clave\n- Propuesta de valor\n- Diferenciación\n- Estrategia comercial"
     },
     {
-      "id": "A2",
-      "type": "rectangle",
-      "x": 300,
-      "y": 100,
-      "width": 150,
-      "height": 60,
-      "strokeColor": "#0A72F5",
-      "backgroundColor": "#E0F2FE",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
+      "id": "proj_title",
+      "type": "text",
+      "x": 500,
+      "y": 150,
+      "width": 100,
+      "height": 25,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
       "roughness": 1,
       "opacity": 100,
       "angle": 0,
       "groupIds": [],
       "frameId": null,
-      "roundness": {
-        "type": 2
-      },
+      "roundness": null,
       "boundElements": [],
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "text": "Contacto Inicial"
+      "text": "Proyección (Timeline)"
     },
     {
-      "id": "A3",
+      "id": "proj_sem",
       "type": "rectangle",
       "x": 500,
-      "y": 100,
-      "width": 150,
+      "y": 180,
+      "width": 200,
       "height": 60,
       "strokeColor": "#0A72F5",
       "backgroundColor": "#E0F2FE",
@@ -75,14 +98,14 @@
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "text": "Presentación / Demo"
+      "text": "Semanal\n- 10 demos\n- 2 cierres"
     },
     {
-      "id": "A4",
+      "id": "proj_mes",
       "type": "rectangle",
-      "x": 700,
-      "y": 100,
-      "width": 150,
+      "x": 750,
+      "y": 180,
+      "width": 200,
       "height": 60,
       "strokeColor": "#0A72F5",
       "backgroundColor": "#E0F2FE",
@@ -100,15 +123,40 @@
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "text": "Negociación / Seguimiento"
+      "text": "Mensual\n- 40 demos\n- 8 cierres"
     },
     {
-      "id": "A5",
+      "id": "proj_ano",
       "type": "rectangle",
-      "x": 900,
-      "y": 100,
-      "width": 150,
+      "x": 1000,
+      "y": 180,
+      "width": 200,
       "height": 60,
+      "strokeColor": "#0A72F5",
+      "backgroundColor": "#E0F2FE",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "text": "Anual\n- Objetivo de crecimiento"
+    },
+    {
+      "id": "offers_prog",
+      "type": "rectangle",
+      "x": 500,
+      "y": 300,
+      "width": 250,
+      "height": 80,
       "strokeColor": "#00CD9E",
       "backgroundColor": "#E0F2FE",
       "fillStyle": "solid",
@@ -125,17 +173,17 @@
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "text": "Cierre de Venta"
+      "text": "Programa de Ofertas\n- Promociones de lanzamiento\n- Plan de referidos"
     },
     {
-      "id": "A6",
+      "id": "main_clients",
       "type": "rectangle",
-      "x": 900,
-      "y": 250,
-      "width": 150,
-      "height": 60,
-      "strokeColor": "#00CD9E",
-      "backgroundColor": "#E0F2FE",
+      "x": 850,
+      "y": 300,
+      "width": 300,
+      "height": 80,
+      "strokeColor": "#DC3545",
+      "backgroundColor": "#F5F5F5",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "roughness": 1,
@@ -150,17 +198,17 @@
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "text": "Post-Venta / Soporte"
+      "text": "Principales Clientes Objetivo\n- Cadenas de Restaurantes\n- Bares y Cafeterías\n- Restaurantes Independientes"
     },
     {
-      "id": "L1",
-      "type": "arrow",
-      "x": 250,
-      "y": 130,
-      "width": 50,
-      "height": 0,
-      "strokeColor": "#4A4A4A",
-      "backgroundColor": "transparent",
+      "id": "app_updates",
+      "type": "rectangle",
+      "x": 200,
+      "y": 300,
+      "width": 250,
+      "height": 80,
+      "strokeColor": "#FFC107",
+      "backgroundColor": "#F5F5F5",
       "fillStyle": "solid",
       "strokeWidth": 2,
       "roughness": 1,
@@ -175,157 +223,18 @@
       "updated": 1678886400000,
       "link": null,
       "locked": false,
-      "startBinding": {
-        "elementId": "A1",
-        "focus": 0,
-        "gap": 1
-      },
-      "endBinding": {
-        "elementId": "A2",
-        "focus": 0,
-        "gap": 1
-      },
-      "points": [
-        [0, 0],
-        [50, 0]
-      ],
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow"
+      "text": "Actualizaciones de App (Feedback)\n- Recopilación de feedback\n- Priorización de mejoras"
     },
     {
-      "id": "L2",
+      "id": "arrow1",
       "type": "arrow",
       "x": 450,
-      "y": 130,
-      "width": 50,
-      "height": 0,
-      "strokeColor": "#4A4A4A",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": {
-        "type": 2
-      },
-      "boundElements": [],
-      "updated": 1678886400000,
-      "link": null,
-      "locked": false,
-      "startBinding": {
-        "elementId": "A2",
-        "focus": 0,
-        "gap": 1
-      },
-      "endBinding": {
-        "elementId": "A3",
-        "focus": 0,
-        "gap": 1
-      },
-      "points": [
-        [0, 0],
-        [50, 0]
-      ],
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow"
-    },
-    {
-      "id": "L3",
-      "type": "arrow",
-      "x": 650,
-      "y": 130,
-      "width": 50,
-      "height": 0,
-      "strokeColor": "#4A4A4A",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": {
-        "type": 2
-      },
-      "boundElements": [],
-      "updated": 1678886400000,
-      "link": null,
-      "locked": false,
-      "startBinding": {
-        "elementId": "A3",
-        "focus": 0,
-        "gap": 1
-      },
-      "endBinding": {
-        "elementId": "A4",
-        "focus": 0,
-        "gap": 1
-      },
-      "points": [
-        [0, 0],
-        [50, 0]
-      ],
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow"
-    },
-    {
-      "id": "L4",
-      "type": "arrow",
-      "x": 850,
-      "y": 130,
-      "width": 50,
-      "height": 0,
-      "strokeColor": "#4A4A4A",
-      "backgroundColor": "transparent",
-      "fillStyle": "solid",
-      "strokeWidth": 2,
-      "roughness": 1,
-      "opacity": 100,
-      "angle": 0,
-      "groupIds": [],
-      "frameId": null,
-      "roundness": {
-        "type": 2
-      },
-      "boundElements": [],
-      "updated": 1678886400000,
-      "link": null,
-      "locked": false,
-      "startBinding": {
-        "elementId": "A4",
-        "focus": 0,
-        "gap": 1
-      },
-      "endBinding": {
-        "elementId": "A5",
-        "focus": 0,
-        "gap": 1
-      },
-      "points": [
-        [0, 0],
-        [50, 0]
-      ],
-      "lastCommittedPoint": null,
-      "startArrowhead": null,
-      "endArrowhead": "arrow"
-    },
-    {
-      "id": "L5",
-      "type": "arrow",
-      "x": 975,
       "y": 210,
-      "width": 0,
-      "height": 40,
+      "width": 50,
+      "height": 0,
       "strokeColor": "#4A4A4A",
       "backgroundColor": "transparent",
-      "fillStyle": "solid",
+      "fillStyle": "hachure",
       "strokeWidth": 2,
       "roughness": 1,
       "opacity": 100,
@@ -340,18 +249,182 @@
       "link": null,
       "locked": false,
       "startBinding": {
-        "elementId": "A5",
+        "elementId": "cl_points",
         "focus": 0,
         "gap": 1
       },
       "endBinding": {
-        "elementId": "A6",
+        "elementId": "proj_sem",
         "focus": 0,
         "gap": 1
       },
       "points": [
         [0, 0],
-        [0, 40]
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow2",
+      "type": "arrow",
+      "x": 700,
+      "y": 210,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "proj_sem",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "proj_mes",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow3",
+      "type": "arrow",
+      "x": 950,
+      "y": 210,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "proj_mes",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "proj_ano",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow4",
+      "type": "arrow",
+      "x": 450,
+      "y": 340,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "app_updates",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "offers_prog",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [50, 0]
+      ],
+      "lastCommittedPoint": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow5",
+      "type": "arrow",
+      "x": 750,
+      "y": 340,
+      "width": 100,
+      "height": 0,
+      "strokeColor": "#4A4A4A",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "opacity": 100,
+      "angle": 0,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": {
+        "type": 2
+      },
+      "boundElements": [],
+      "updated": 1678886400000,
+      "link": null,
+      "locked": false,
+      "startBinding": {
+        "elementId": "offers_prog",
+        "focus": 0,
+        "gap": 1
+      },
+      "endBinding": {
+        "elementId": "main_clients",
+        "focus": 0,
+        "gap": 1
+      },
+      "points": [
+        [0, 0],
+        [100, 0]
       ],
       "lastCommittedPoint": null,
       "startArrowhead": null,
@@ -379,7 +452,7 @@
     "zenModeEnabled": false,
     "gridSize": null,
     "viewMode": "canvas",
-    "name": "Last.app Sales Flow",
+    "name": "Last.app Growth Plan",
     "pendingImageElement": null,
     "contextMenu": null,
     "openMenu": null,
@@ -387,8 +460,8 @@
     "selectedElementIds": {},
     "previousSelectedElementIds": {},
     "multiElement": null,
-    "width": 1200,
-    "height": 600
+    "width": 1400,
+    "height": 500
   },
   "files": {}
 }
