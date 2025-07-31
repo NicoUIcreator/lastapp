@@ -1,447 +1,322 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolás Coronel - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
-    <style>
-        /* Definición de colores de Last.app (adaptados de la imagen) */
-        :root {
-            --lastapp-blue: #0A72F5; /* Azul vibrante, similar al del logo */
-            --lastapp-green: #00CD9E; /* Verde/Turquesa vibrante del logo */
-            --lastapp-dark-gray: #333333; /* Texto principal y footer */
-            --lastapp-light-gray: #F5F5F5; /* Fondo de secciones claras */
-            --lastapp-text-color: #4A4A4A; /* Color de texto general */
-            --lastapp-bg-secondary: #E0F2FE; /* Un azul muy claro para fondos de estado */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--lastapp-light-gray); /* Gris claro de fondo */
-            color: var(--lastapp-text-color); /* Gris oscuro para el texto */
-        }
-        .section-padding {
-            padding: 4rem 1rem; /* Espaciado generoso para secciones */
-        }
-        /* Estilos específicos para el mapa */
-        #map {
-            height: 500px; /* Altura fija para el mapa */
-            width: 100%;
-            border-radius: 0.75rem; /* Bordes redondeados */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-        }
-        /* Estilos para el scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Estilo para el contenedor del video y diagrama */
-        .responsive-iframe-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .responsive-iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Colores específicos de Tailwind usando las variables CSS */
-        .bg-lastapp-blue { background-color: var(--lastapp-blue); }
-        .text-lastapp-blue { color: var(--lastapp-blue); }
-        .hover\:text-lastapp-blue:hover { color: var(--lastapp-blue); }
-        .bg-lastapp-green { background-color: var(--lastapp-green); }
-        .text-lastapp-green { color: var(--lastapp-green); }
-        .bg-lastapp-light-gray { background-color: var(--lastapp-light-gray); }
-        .bg-lastapp-dark-gray { background-color: var(--lastapp-dark-gray); }
-        .bg-lastapp-bg-secondary { background-color: var(--lastapp-bg-secondary); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Last.app</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
-<body class="antialiased">
+<body>
+  
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center py-3">
+      <h1 class="text-xl font-bold text-purple-600">Nicolás Coronel</h1>
+      <button id="menu-btn" class="md:hidden block text-gray-700 focus:outline-none">
+        ☰
+      </button>
+      <div id="menu" class="hidden md:flex space-x-6 text-gray-700 font-medium">
+        <a href="#inicio" class="hover:text-purple-600">Inicio</a>
+        <a href="#presentacion" class="hover:text-purple-600">Presentación</a>
+        <a href="#mapas" class="hover:text-purple-600">Mapas y Gráficos</a>
+        <a href="#crm" class="hover:text-purple-600">Seguimiento CRM</a>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-2 pb-4">
+      <a href="#inicio" class="hover:text-purple-600">Inicio</a>
+      <a href="#presentacion" class="hover:text-purple-600">Presentación</a>
+      <a href="#mapas" class="hover:text-purple-600">Mapas y Gráficos</a>
+      <a href="#crm" class="hover:text-purple-600">Seguimiento CRM</a>
+    </div>
+  </div>
+</nav>
 
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-xl">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-lastapp-blue">Nicolás Coronel</a>
-            <div class="space-x-4">
-                <a href="#inicio" class="text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Inicio</a>
-                <a href="#presentacion" class="text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Presentación</a>
-                <a href="#mapas-graficos" class="text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Mapas y Gráficos</a>
-                <a href="#seguimiento-crm" class="text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Seguimiento CRM</a>
+    <h1 class="font-bold text-xl">Nicolás Coronel</h1>
+    <div class="space-x-4">
+      <a href="#inicio">Inicio</a>
+      <a href="#presentacion">Presentación</a>
+      <a href="#mapas">Mapas</a>
+      <a href="#crm">CRM</a>
+    </div>
+  </nav>
+
+  <section id="inicio" class="section text-center">
+    <h1 class="text-4xl font-bold">Mi Estrategia para Last.app</h1>
+    <p class="text-lg mt-2">Un enfoque integral para prospección y seguimiento de clientes.</p>
+    <button class="btn mt-4">Solicita tu demo</button>
+  </section>
+
+  <section id="presentacion" class="section card" data-animate>
+    <h2 class="text-2xl font-bold mb-4">Presentación</h2>
+    <div class="aspect-video">
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  
+<section id="mapas" class="section card mt-6" data-animate>
+  <h2 class="text-3xl font-bold text-center mb-6 text-purple-500">Mapa y Datos de Restaurantes</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+    <div>
+      <div id="map" style="height:400px;"></div>
+    </div>
+    <div>
+      <canvas id="restaurantChart"></canvas>
+      <canvas id="cuisineChart" class="mt-6"></canvas>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto mt-6">
+    <table class="min-w-full bg-white text-black rounded-lg">
+      <thead class="bg-purple-600 text-white">
+        <tr>
+          <th class="py-2 px-4 text-left">Nombre</th>
+          <th class="py-2 px-4 text-left">Empleados</th>
+          <th class="py-2 px-4 text-left">Tipo de Cocina</th>
+          <th class="py-2 px-4 text-left">Sector</th>
+        </tr>
+      </thead>
+      <tbody id="restaurant-list"></tbody>
+    </table>
+  </div>
+</section>
+
+
+  
+<section id="crm" class="section mt-8" data-animate>
+  <h2 class="text-3xl font-bold text-center mb-4 text-purple-600">Mi Sistema de Seguimiento de Clientes (CRM Ficticio)</h2>
+  <p class="text-center text-gray-200 mb-8 max-w-2xl mx-auto">
+    Una visión simplificada de cómo organizaría el seguimiento de mis interacciones con los clientes, con niveles de contacto y una agenda.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="bg-gray-50 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Estado de Contacto con Clientes</h3>
+      <ul class="space-y-4">
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Restaurante La Esquina</p>
+            <p class="text-sm text-gray-600">Contacto: Juan Pérez (Gerente)</p>
+          </div>
+          <span class="px-3 py-1 bg-purple-200 text-purple-800 text-sm font-medium rounded-full">Demo Agendada</span>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Pizzería Napoli</p>
+            <p class="text-sm text-gray-600">Contacto: María Gómez (Propietaria)</p>
+          </div>
+          <span class="px-3 py-1 bg-green-200 text-green-800 text-sm font-medium rounded-full">Primer Contacto Exitoso</span>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Cafetería El Sol</p>
+            <p class="text-sm text-gray-600">Contacto: Carlos Ruiz (Encargado)</p>
+          </div>
+          <span class="px-3 py-1 bg-yellow-200 text-yellow-800 text-sm font-medium rounded-full">Seguimiento Pendiente</span>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Bar Tapas Madrid</p>
+            <p class="text-sm text-gray-600">Contacto: Ana López (Dueña)</p>
+          </div>
+          <span class="px-3 py-1 bg-red-200 text-red-800 text-sm font-medium rounded-full">Objeción Inicial</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bg-gray-50 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Mi Agenda Semanal Ficticia</h3>
+      <ul class="space-y-4">
+        <li class="p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-lg text-purple-600">Lunes, 30 de Julio</p>
+          <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>9:00 - 11:00: Prospección Zona Centro (CRM Update)</li>
+            <li>12:00 - 14:00: Visitas Walk-in: Pizzería Napoli, Bar Tapas Madrid</li>
+            <li>16:00 - 17:00: Preparación Demo: Restaurante La Esquina</li>
+          </ul>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-lg text-purple-600">Martes, 31 de Julio</p>
+          <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>10:00 - 11:00: Demo Virtual: Restaurante La Esquina</li>
+            <li>11:30 - 13:30: Visitas Walk-in: Cafetería El Sol, El Rincón Gastronómico</li>
+            <li>15:00 - 17:00: Seguimiento de Leads (Correos y Llamadas)</li>
+          </ul>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-lg text-purple-600">Miércoles, 1 de Agosto</p>
+          <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>9:00 - 12:00: Prospección Zona Malasaña</li>
+            <li>12:30 - 14:30: Visitas Walk-in: La Taberna Moderna, Restaurante Vegano Verde</li>
+            <li>16:00 - 17:00: Análisis de KPIs Semanales</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    <h2 class="text-2xl font-bold mb-4">CRM Simulado</h2>
+    <ul class="space-y-3">
+      <li class="p-3 bg-gray-100 rounded">🍽 Restaurante La Esquina - Demo Agendada</li>
+      <li class="p-3 bg-gray-100 rounded">🍕 Pizzería Napoli - Primer Contacto Exitoso</li>
+      <li class="p-3 bg-gray-100 rounded">☕ Cafetería El Sol - Seguimiento Pendiente</li>
+    </ul>
+  </section>
+
+
+  
+<section id="crm" class="section mt-8" data-animate>
+  <h2 class="text-3xl font-bold text-center mb-4 text-purple-600">Mi Sistema de Seguimiento de Clientes (CRM Ficticio)</h2>
+  <p class="text-center text-gray-200 mb-8 max-w-2xl mx-auto">
+    Una visión simplificada de cómo organizaría el seguimiento de mis interacciones con los clientes, con niveles de contacto y una agenda.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="bg-gray-50 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Estado de Contacto con Clientes</h3>
+      <ul class="space-y-4">
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Restaurante La Esquina</p>
+            <p class="text-sm text-gray-600">Contacto: Juan Pérez (Gerente)</p>
+          </div>
+          <span class="px-3 py-1 bg-purple-200 text-purple-800 text-sm font-medium rounded-full">Demo Agendada</span>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Pizzería Napoli</p>
+            <p class="text-sm text-gray-600">Contacto: María Gómez (Propietaria)</p>
+          </div>
+          <span class="px-3 py-1 bg-green-200 text-green-800 text-sm font-medium rounded-full">Primer Contacto Exitoso</span>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Cafetería El Sol</p>
+            <p class="text-sm text-gray-600">Contacto: Carlos Ruiz (Encargado)</p>
+          </div>
+          <span class="px-3 py-1 bg-yellow-200 text-yellow-800 text-sm font-medium rounded-full">Seguimiento Pendiente</span>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow flex items-center justify-between">
+          <div>
+            <p class="font-semibold text-lg">Bar Tapas Madrid</p>
+            <p class="text-sm text-gray-600">Contacto: Ana López (Dueña)</p>
+          </div>
+          <span class="px-3 py-1 bg-red-200 text-red-800 text-sm font-medium rounded-full">Objeción Inicial</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bg-gray-50 p-6 rounded-lg shadow">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Mi Agenda Semanal Ficticia</h3>
+      <ul class="space-y-4">
+        <li class="p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-lg text-purple-600">Lunes, 30 de Julio</p>
+          <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>9:00 - 11:00: Prospección Zona Centro (CRM Update)</li>
+            <li>12:00 - 14:00: Visitas Walk-in: Pizzería Napoli, Bar Tapas Madrid</li>
+            <li>16:00 - 17:00: Preparación Demo: Restaurante La Esquina</li>
+          </ul>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-lg text-purple-600">Martes, 31 de Julio</p>
+          <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>10:00 - 11:00: Demo Virtual: Restaurante La Esquina</li>
+            <li>11:30 - 13:30: Visitas Walk-in: Cafetería El Sol, El Rincón Gastronómico</li>
+            <li>15:00 - 17:00: Seguimiento de Leads (Correos y Llamadas)</li>
+          </ul>
+        </li>
+        <li class="p-4 bg-white rounded-lg shadow">
+          <p class="font-semibold text-lg text-purple-600">Miércoles, 1 de Agosto</p>
+          <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+            <li>9:00 - 12:00: Prospección Zona Malasaña</li>
+            <li>12:30 - 14:30: Visitas Walk-in: La Taberna Moderna, Restaurante Vegano Verde</li>
+            <li>16:00 - 17:00: Análisis de KPIs Semanales</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+    <h2 class="text-3xl font-bold text-center mb-4 text-purple-500">Mi Sistema de Seguimiento de Clientes (CRM Ficticio)</h2>
+    <p class="text-center text-gray-200 mb-8">Una visión simplificada de cómo organizaría el seguimiento de mis interacciones con los clientes, con niveles de contacto y una agenda.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800">Estado de Contacto con Clientes</h3>
+        <ul class="space-y-4">
+          <li class="p-4 bg-gray-100 rounded flex justify-between items-center">
+            <div>
+              <p class="font-bold">Restaurante La Esquina</p>
+              <p class="text-sm text-gray-600">Contacto: Juan Pérez (Gerente)</p>
             </div>
-        </div>
-    </nav>
-
-    <section id="inicio" class="section-padding bg-lastapp-blue text-white text-center rounded-b-xl shadow-lg mx-4 mt-4">
-        <div class="container mx-auto">
-            <h1 class="text-5xl font-extrabold mb-6 leading-tight">Mi Estrategia para Last.app</h1>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Un enfoque integral para la prospección, contacto y seguimiento de clientes en el sector de la hostelería.</p>
-            <div class="bg-white p-8 rounded-lg shadow-xl inline-block max-w-4xl w-full">
-                <h2 class="text-3xl font-bold text-gray-800 mb-6">Diagrama del Proyecto (Interactivo)</h2>
-                <p class="text-gray-600 mb-4">Aquí se presentaría un diagrama visual e interactivo del flujo de trabajo propuesto.</p>
-                <div class="responsive-iframe-container mx-auto">
-                    <iframe src="https://excalidraw.com/#json=YOUR_EXCALIDRAW_DIAGRAM_JSON_HERE" title="Diagrama del Proyecto" allowfullscreen></iframe>
-                </div>
-                <p class="text-sm text-gray-500 mt-4">Este iframe es un ejemplo. Aquí iría tu diagrama interactivo (Excalidraw, Whimsical, etc.).</p>
+            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-sm">Demo Agendada</span>
+          </li>
+          <li class="p-4 bg-gray-100 rounded flex justify-between items-center">
+            <div>
+              <p class="font-bold">Pizzería Napoli</p>
+              <p class="text-sm text-gray-600">Contacto: María Gómez (Propietaria)</p>
             </div>
-        </div>
-    </section>
-
-    <section id="presentacion" class="section-padding bg-white mx-4 mt-8 rounded-xl shadow-lg">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold text-lastapp-blue mb-8">Mi Presentación Personal</h2>
-            <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">Conoce mi energía, mi visión y cómo mis habilidades se alinean con los objetivos de Last.app. ¡Dale al play!</p>
-            <div class="responsive-iframe-container mx-auto max-w-4xl">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=0-YqgYd6Z1m-3" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm">Primer Contacto Exitoso</span>
+          </li>
+          <li class="p-4 bg-gray-100 rounded flex justify-between items-center">
+            <div>
+              <p class="font-bold">Cafetería El Sol</p>
+              <p class="text-sm text-gray-600">Contacto: Carlos Ruiz (Encargado)</p>
             </div>
-            <p class="text-sm text-gray-500 mt-4">Este video es un ejemplo (Rick Astley). Aquí iría tu video de presentación personal.</p>
-        </div>
-    </section>
-
-    <section id="mapas-graficos" class="section-padding bg-lastapp-light-gray mx-4 mt-8 rounded-xl shadow-lg">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-lastapp-blue text-center mb-8">Análisis Geográfico y de Mercado</h2>
-            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">Visualización de la segmentación de Madrid por sectores y la distribución de restaurantes potenciales, junto con gráficos que muestran el perfil de estos negocios.</p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mapa de Prospección en Madrid</h3>
-                    <p class="text-gray-600 mb-4">Cada color representa un sector de Madrid con restaurantes ficticios. Haz clic en los marcadores para ver detalles.</p>
-                    <div id="map"></div>
-                    <div class="mt-4 text-sm text-gray-600">
-                        <p class="font-semibold">Leyenda de Sectores:</p>
-                        <ul id="sector-legend" class="list-disc list-inside">
-                            </ul>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Distribución de Restaurantes por Sector</h3>
-                        <p class="text-gray-600 mb-4">Un gráfico animado que muestra la cantidad de restaurantes ficticios por cada sector definido.</p>
-                        <canvas id="restaurantChart"></canvas>
-                    </div>
-                    <div class="mt-6">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Distribución de Restaurantes por Tipo de Cocina</h3>
-                        <p class="text-gray-600 mb-4">Otro gráfico que muestra la distribución de restaurantes ficticios por tipo de cocina.</p>
-                        <canvas id="cuisineChart"></canvas>
-                    </div>
-                </div>
+            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-sm">Seguimiento Pendiente</span>
+          </li>
+          <li class="p-4 bg-gray-100 rounded flex justify-between items-center">
+            <div>
+              <p class="font-bold">Bar Tapas Madrid</p>
+              <p class="text-sm text-gray-600">Contacto: Ana López (Dueña)</p>
             </div>
+            <span class="px-3 py-1 bg-red-200 text-red-800 rounded-full text-sm">Objeción Inicial</span>
+          </li>
+        </ul>
+      </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">Restaurantes Potenciales (Ficticios)</h3>
-                <p class="text-gray-600 mb-4">Detalles de los restaurantes inventados para el ejercicio.</p>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full bg-white rounded-lg">
-                        <thead>
-                            <tr class="bg-lastapp-blue text-white">
-                                <th class="py-2 px-4 text-left rounded-tl-lg">Nombre</th>
-                                <th class="py-2 px-4 text-left">Empleados</th>
-                                <th class="py-2 px-4 text-left">Tipo de Cocina</th>
-                                <th class="py-2 px-4 text-left rounded-tr-lg">Sector</th>
-                            </tr>
-                        </thead>
-                        <tbody id="restaurant-list">
-                            </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="seguimiento-crm" class="section-padding bg-white mx-4 mt-8 rounded-xl shadow-lg">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-lastapp-blue text-center mb-8">Mi Sistema de Seguimiento de Clientes (CRM Ficticio)</h2>
-            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">Una visión simplificada de cómo organizaría el seguimiento de mis interacciones con los clientes, con niveles de contacto y una agenda.</p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-lastapp-bg-secondary p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Estado de Contacto con Clientes</h3>
-                    <ul class="space-y-4">
-                        <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
-                            <div>
-                                <p class="font-semibold text-lg">Restaurante La Esquina</p>
-                                <p class="text-sm text-gray-600">Contacto: Juan Pérez (Gerente)</p>
-                            </div>
-                            <span class="px-3 py-1 bg-lastapp-blue bg-opacity-20 text-lastapp-blue text-sm font-medium rounded-full">Demo Agendada</span>
-                        </li>
-                        <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
-                            <div>
-                                <p class="font-semibold text-lg">Pizzería Napoli</p>
-                                <p class="text-sm text-gray-600">Contacto: María Gómez (Propietaria)</p>
-                            </div>
-                            <span class="px-3 py-1 bg-lastapp-green bg-opacity-20 text-lastapp-green text-sm font-medium rounded-full">Primer Contacto Exitoso</span>
-                        </li>
-                        <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
-                            <div>
-                                <p class="font-semibold text-lg">Cafetería El Sol</p>
-                                <p class="text-sm text-gray-600">Contacto: Carlos Ruiz (Encargado)</p>
-                            </div>
-                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 text-sm font-medium rounded-full">Seguimiento Pendiente</span>
-                        </li>
-                        <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
-                            <div>
-                                <p class="font-semibold text-lg">Bar Tapas Madrid</p>
-                                <p class="text-sm text-gray-600">Contacto: Ana López (Dueña)</p>
-                            </div>
-                            <span class="px-3 py-1 bg-red-200 text-red-800 text-sm font-medium rounded-full">Objeción Inicial</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-lastapp-bg-secondary p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mi Agenda Semanal Ficticia</h3>
-                    <ul class="space-y-4">
-                        <li class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="font-semibold text-lg text-lastapp-blue">Lunes, 30 de Julio</p>
-                            <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                                <li>9:00 - 11:00: Prospección Zona Centro (CRM Update)</li>
-                                <li>12:00 - 14:00: Visitas Walk-in: Pizzería Napoli, Bar Tapas Madrid</li>
-                                <li>16:00 - 17:00: Preparación Demo: Restaurante La Esquina</li>
-                            </ul>
-                        </li>
-                        <li class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="font-semibold text-lg text-lastapp-blue">Martes, 31 de Julio</p>
-                            <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                                <li>10:00 - 11:00: Demo Virtual: Restaurante La Esquina</li>
-                                <li>11:30 - 13:30: Visitas Walk-in: Cafetería El Sol, El Rincón Gastronómico</li>
-                                <li>15:00 - 17:00: Seguimiento de Leads (Correos y Llamadas)</li>
-                            </ul>
-                        </li>
-                        <li class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="font-semibold text-lg text-lastapp-blue">Miércoles, 1 de Agosto</p>
-                            <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
-                                <li>9:00 - 12:00: Prospección Zona Malasaña</li>
-                                <li>12:30 - 14:30: Visitas Walk-in: La Taberna Moderna, Restaurante Vegano Verde</li>
-                                <li>16:00 - 17:00: Análisis de KPIs Semanales</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-lastapp-dark-gray text-white p-6 mt-8 text-center rounded-t-xl mx-4 shadow-lg">
-        <div class="container mx-auto">
-            <p>© 2025 Nicolás Coronel. Todos los derechos reservados.</p>
-            <p class="text-sm mt-2">Construido con pasión y visión para el crecimiento.</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="https://linkedin.com/in/nicolasjuancoronel" target="_blank" class="text-gray-400 hover:text-white transition duration-300">LinkedIn</a>
-                <a href="https://nicodatacreator.github.io" target="_blank" class="text-gray-400 hover:text-white transition duration-300">Portfolio (GitHub)</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        crossorigin=""></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        // JavaScript para el mapa y los gráficos
-        document.addEventListener('DOMContentLoaded', () => {
-            // Datos ficticios de restaurantes en Madrid y sectores
-            const restaurants = [
-                { name: "La Taberna del Chef", lat: 40.416775, lng: -3.703790, employees: 15, cuisine: "Española", sector: "Centro" },
-                { name: "Pizzería Bella Roma", lat: 40.420000, lng: -3.680000, employees: 10, cuisine: "Italiana", sector: "Salamanca" },
-                { name: "Sushi Express", lat: 40.405000, lng: -3.715000, employees: 8, cuisine: "Japonesa", sector: "La Latina" },
-                { name: "El Jardín Vegano", lat: 40.430000, lng: -3.690000, employees: 12, cuisine: "Vegana", sector: "Chueca" },
-                { name: "Cafetería Amanecer", lat: 40.410000, lng: -3.700000, employees: 7, cuisine: "Cafetería", sector: "Centro" },
-                { name: "Restaurante El Quijote", lat: 40.400000, lng: -3.720000, employees: 20, cuisine: "Tradicional", sector: "La Latina" },
-                { name: "Burger Palace", lat: 40.425000, lng: -3.670000, employees: 18, cuisine: "Americana", sector: "Salamanca" },
-                { name: "Tapas y Cañas", lat: 40.412000, lng: -3.705000, employees: 14, cuisine: "Tapas", sector: "Centro" },
-                { name: "La Paella de la Abuela", lat: 40.408000, lng: -3.710000, employees: 16, cuisine: "Española", sector: "La Latina" },
-                { name: "Bistro Francés", lat: 40.435000, lng: -3.685000, employees: 11, cuisine: "Francesa", sector: "Chueca" },
-                { name: "Heladería Dulce Vida", lat: 40.418000, lng: -3.695000, employees: 6, cuisine: "Postres", sector: "Salamanca" },
-                { name: "Restaurante Asiático Wok", lat: 40.428000, lng: -3.708000, employees: 9, cuisine: "Asiática", sector: "Centro" },
-                { name: "La Cervecería", lat: 40.402000, lng: -3.718000, employees: 13, cuisine: "Cervecería", sector: "La Latina" },
-                { name: "Tacos Locos", lat: 40.432000, lng: -3.692000, employees: 10, cuisine: "Mexicana", sector: "Chueca" },
-                { name: "El Rincón del Café", lat: 40.415000, lng: -3.702000, employees: 5, cuisine: "Cafetería", sector: "Centro" },
-            ];
-
-            // Colores para los sectores (inspirados en Last.app, pero variados para el mapa)
-            const sectorColors = {
-                "Centro": "var(--lastapp-blue)",
-                "Salamanca": "var(--lastapp-green)",
-                "La Latina": "#FFC107",  // Un amarillo para contraste
-                "Chueca": "#DC3545",     // Un rojo para contraste
-            };
-
-            // Inicializar el mapa
-            const map = L.map('map').setView([40.416775, -3.703790], 13); // Coordenadas de Madrid, zoom 13
-
-            // Añadir capa de OpenStreetMap
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                maxZoom: 19,
-            }).addTo(map);
-
-            // Añadir marcadores de restaurantes al mapa
-            restaurants.forEach(restaurant => {
-                const marker = L.circleMarker([restaurant.lat, restaurant.lng], {
-                    radius: 8,
-                    fillColor: sectorColors[restaurant.sector],
-                    color: "#000",
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.8
-                }).addTo(map);
-
-                marker.bindPopup(`
-                    <strong style="color: ${sectorColors[restaurant.sector]};">${restaurant.name}</strong><br>
-                    Empleados: ${restaurant.employees}<br>
-                    Tipo de Cocina: ${restaurant.cuisine}<br>
-                    Sector: ${restaurant.sector}
-                `);
-            });
-
-            // Generar leyenda del mapa
-            const legendContainer = document.getElementById('sector-legend');
-            for (const sector in sectorColors) {
-                const li = document.createElement('li');
-                li.innerHTML = `<span style="display:inline-block; width:15px; height:15px; background-color:${sectorColors[sector]}; border-radius:50%; margin-right:5px; vertical-align:middle;"></span> ${sector}`;
-                legendContainer.appendChild(li);
-            }
-
-            // Generar lista de restaurantes en la tabla
-            const restaurantListTable = document.getElementById('restaurant-list');
-            restaurants.forEach(restaurant => {
-                const row = document.createElement('tr');
-                row.className = 'border-b border-gray-200 hover:bg-gray-50';
-                row.innerHTML = `
-                    <td class="py-2 px-4">${restaurant.name}</td>
-                    <td class="py-2 px-4">${restaurant.employees}</td>
-                    <td class="py-2 px-4">${restaurant.cuisine}</td>
-                    <td class="py-2 px-4">${restaurant.sector}</td>
-                `;
-                restaurantListTable.appendChild(row);
-            });
-
-            // Preparar datos para los gráficos
-            const sectorCounts = {};
-            const cuisineCounts = {};
-            restaurants.forEach(r => {
-                sectorCounts[r.sector] = (sectorCounts[r.sector] || 0) + 1;
-                cuisineCounts[r.cuisine] = (cuisineCounts[r.cuisine] || 0) + 1;
-            });
-
-            const sectorLabels = Object.keys(sectorCounts);
-            const sectorData = Object.values(sectorCounts);
-            const sectorBackgroundColors = sectorLabels.map(label => {
-                // Asegurarse de obtener el valor CSS variable si está definida
-                const colorVar = sectorColors[label];
-                if (colorVar.startsWith('var(')) {
-                    return getComputedStyle(document.documentElement).getPropertyValue(colorVar.slice(4, -1));
-                }
-                return colorVar;
-            });
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800">Mi Agenda Semanal Ficticia</h3>
+        <ul class="space-y-4">
+          <li class="p-4 bg-gray-100 rounded">
+            <p class="font-bold text-purple-500">Lunes, 30 de Julio</p>
+            <ul class="list-disc ml-5 mt-2 text-gray-700">
+              <li>9:00 - 11:00: Prospección Zona Centro (CRM Update)</li>
+              <li>12:00 - 14:00: Visitas Walk-in: Pizzería Napoli, Bar Tapas Madrid</li>
+              <li>16:00 - 17:00: Preparación Demo: Restaurante La Esquina</li>
+            </ul>
+          </li>
+          <li class="p-4 bg-gray-100 rounded">
+            <p class="font-bold text-purple-500">Martes, 31 de Julio</p>
+            <ul class="list-disc ml-5 mt-2 text-gray-700">
+              <li>10:00 - 11:00: Demo Virtual: Restaurante La Esquina</li>
+              <li>11:30 - 13:30: Visitas Walk-in: Cafetería El Sol, El Rincón Gastronómico</li>
+              <li>15:00 - 17:00: Seguimiento de Leads (Correos y Llamadas)</li>
+            </ul>
+          </li>
+          <li class="p-4 bg-gray-100 rounded">
+            <p class="font-bold text-purple-500">Miércoles, 1 de Agosto</p>
+            <ul class="list-disc ml-5 mt-2 text-gray-700">
+              <li>9:00 - 12:00: Prospección Zona Malasaña</li>
+              <li>12:30 - 14:30: Visitas Walk-in: La Taberna Moderna, Restaurante Vegano Verde</li>
+              <li>16:00 - 17:00: Análisis de KPIs Semanales</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
 
-            const cuisineLabels = Object.keys(cuisineCounts);
-            const cuisineData = Object.values(cuisineCounts);
-            // Colores para tipos de cocina, puedes personalizarlos si quieres
-            const cuisineBackgroundColors = [
-                getComputedStyle(document.documentElement).getPropertyValue('--lastapp-blue'),
-                getComputedStyle(document.documentElement).getPropertyValue('--lastapp-green'),
-                '#FFC107', '#DC3545', '#6F42C1', '#20C997', '#FD7E14', '#6610F2',
-                '#E83E8C', '#6C757D', '#17A2B8', '#F8F9FA'
-            ];
+  <footer class="text-center text-sm text-gray-400 p-4 mt-6">
+    © 2025 Nicolás Coronel
+  </footer>
 
-            // Gráfico de Distribución por Sector
-            const ctxSector = document.getElementById('restaurantChart').getContext('2d');
-            new Chart(ctxSector, {
-                type: 'bar',
-                data: {
-                    labels: sectorLabels,
-                    datasets: [{
-                        label: 'Número de Restaurantes',
-                        data: sectorData,
-                        backgroundColor: sectorBackgroundColors,
-                        borderColor: sectorBackgroundColors,
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    animation: {
-                        duration: 1000,
-                        easing: 'easeInOutQuart'
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: 'Restaurantes por Sector',
-                            color: 'var(--lastapp-text-color)'
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: { color: 'var(--lastapp-text-color)' }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0,
-                                color: 'var(--lastapp-text-color)'
-                            },
-                            grid: {
-                                color: 'rgba(0,0,0,0.05)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Gráfico de Distribución por Tipo de Cocina
-            const ctxCuisine = document.getElementById('cuisineChart').getContext('2d');
-            new Chart(ctxCuisine, {
-                type: 'pie',
-                data: {
-                    labels: cuisineLabels,
-                    datasets: [{
-                        label: 'Restaurantes por Tipo de Cocina',
-                        data: cuisineData,
-                        backgroundColor: cuisineBackgroundColors,
-                        borderColor: '#ffffff',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    animation: {
-                        duration: 1000,
-                        easing: 'easeInOutQuart'
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            labels: {
-                                boxWidth: 20,
-                                color: 'var(--lastapp-text-color)'
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'Restaurantes por Tipo de Cocina',
-                            color: 'var(--lastapp-text-color)'
-                        }
-                    }
-                }
-            });
-        });
-    </script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
