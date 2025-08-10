@@ -10,30 +10,34 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
     <style>
-        /* Definición de colores de Last.app (adaptados de la imagen) */
+        /* Definición de la paleta de colores ajustada */
         :root {
-            --lastapp-blue: #0A72F5; /* Azul vibrante, similar al del logo */
-            --lastapp-green: #00CD9E; /* Verde/Turquesa vibrante del logo */
-            --lastapp-dark-gray: #333333; /* Texto principal y footer */
-            --lastapp-light-gray: #F5F5F5; /* Fondo de secciones claras */
-            --lastapp-text-color: #4A4A4A; /* Color de texto general */
-            --lastapp-bg-secondary: #E0F2FE; /* Un azul muy claro para fondos de estado */
+            /* Púrpura profundo para el nombre y títulos, tomado de la imagen de referencia */
+            --primary-purple: #4A2C6F; 
+            /* El color más oscuro, casi negro, del degradado de la imagen para el footer */
+            --dark-bg: #1E1C24; 
+            /* Un gris suave para fondos de secciones */
+            --light-bg: #E5E7EB; 
+            /* Color principal para el texto */
+            --text-color: #333333; 
+            /* Un púrpura muy claro para fondos secundarios */
+            --secondary-bg: #F3F0F7; 
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--lastapp-light-gray); /* Gris claro de fondo */
-            color: var(--lastapp-text-color); /* Gris oscuro para el texto */
+            background-color: var(--light-bg);
+            color: var(--text-color);
         }
         .section-padding {
-            padding: 4rem 1rem; /* Espaciado generoso para secciones */
+            padding: 4rem 1rem;
         }
         /* Estilos específicos para el mapa */
         #map {
-            height: 500px; /* Altura fija para el mapa */
+            height: 500px;
             width: 100%;
-            border-radius: 0.75rem; /* Bordes redondeados */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Estilos para el scroll suave */
         html {
@@ -58,43 +62,43 @@
             border: 0;
         }
 
-        /* Colores específicos de Tailwind usando las variables CSS */
-        .bg-lastapp-blue { background-color: var(--lastapp-blue); }
-        .text-lastapp-blue { color: var(--lastapp-blue); }
-        .hover\:text-lastapp-blue:hover { color: var(--lastapp-blue); }
-        .bg-lastapp-green { background-color: var(--lastapp-green); }
-        .text-lastapp-green { color: var(--lastapp-green); }
-        .bg-lastapp-light-gray { background-color: var(--lastapp-light-gray); }
-        .bg-lastapp-dark-gray { background-color: var(--lastapp-dark-gray); }
-        .bg-lastapp-bg-secondary { background-color: var(--lastapp-bg-secondary); }
+        /* Clases de Tailwind que usan las nuevas variables CSS */
+        .bg-primary-purple { background-color: var(--primary-purple); }
+        .text-primary-purple { color: var(--primary-purple); }
+        .hover\:text-primary-purple:hover { color: var(--primary-purple); }
+        .bg-light-bg { background-color: var(--light-bg); }
+        .bg-dark-bg { background-color: var(--dark-bg); }
+        .bg-secondary-bg { background-color: var(--secondary-bg); }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-xl">
+    <!-- Se ajustan los colores y las transiciones para un look más minimalista -->
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-xl transition-all duration-200 ease-in-out">
         <div class="container mx-auto flex justify-between items-center flex-wrap">
-            <a href="#" class="text-2xl font-bold text-lastapp-blue">Nicolás Coronel</a>
+            <a href="#" class="text-2xl font-bold text-primary-purple">Nicolás Coronel</a>
 
-            <button id="hamburger-button" class="sm:hidden text-gray-700 hover:text-lastapp-blue focus:outline-none">
+            <button id="hamburger-button" class="sm:hidden text-gray-700 hover:text-gray-900 focus:outline-none transition-colors duration-200">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
 
             <div id="nav-menu" class="hidden w-full sm:flex sm:items-center sm:w-auto mt-4 sm:mt-0 space-y-2 sm:space-y-0 sm:space-x-4">
-                <a href="#inicio" class="block text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Inicio</a>
-                <a href="#presentacion" class="block text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Presentación</a>
-                <a href="#mapas-graficos" class="block text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Mapas y Gráficos</a>
-                <a href="#seguimiento-crm" class="block text-gray-700 hover:text-lastapp-blue font-medium transition duration-300">Seguimiento CRM</a>
+                <a href="#inicio" class="block text-gray-700 hover:text-gray-900 font-medium transition duration-200">Inicio</a>
+                <a href="#presentacion" class="block text-gray-700 hover:text-gray-900 font-medium transition duration-200">Presentación</a>
+                <a href="#mapas-graficos" class="block text-gray-700 hover:text-gray-900 font-medium transition duration-200">Mapas y Gráficos</a>
+                <a href="#seguimiento-crm" class="block text-gray-700 hover:text-gray-900 font-medium transition duration-200">Seguimiento CRM</a>
             </div>
         </div>
     </nav>
 
-    <section id="inicio" class="section-padding bg-lastapp-blue text-white text-center rounded-b-xl shadow-lg mx-4 mt-4">
+    <!-- La sección de inicio ahora es púrpura oscuro -->
+    <section id="inicio" class="section-padding bg-primary-purple text-white text-center rounded-b-xl shadow-lg mx-4 mt-4 transition-all duration-200 ease-in-out">
         <div class="container mx-auto">
             <h1 class="text-5xl font-extrabold mb-6 leading-tight">Mi Estrategia para Last.app</h1>
             <p class="text-xl mb-8 max-w-3xl mx-auto">Un enfoque integral para la prospección, contacto y seguimiento de clientes en el sector de la hostelería.</p>
-            <div class="bg-white p-8 rounded-lg shadow-xl inline-block max-w-4xl w-full">
+            <div class="bg-white p-8 rounded-lg shadow-xl inline-block max-w-4xl w-full hover:shadow-2xl transition-all duration-200 ease-in-out hover:scale-[1.02]">
                 <h2 class="text-3xl font-bold text-gray-800 mb-6">Diagrama del Proyecto</h2>
                 <p class="text-gray-600 mb-4">Aquí se presentaría un diagrama visual e interactivo del flujo de trabajo propuesto.</p>
                 <div class="responsive-img-container mx-auto">
@@ -104,9 +108,10 @@
         </div>
     </section>
 
-    <section id="presentacion" class="section-padding bg-white mx-4 mt-8 rounded-xl shadow-lg">
+    <!-- Se ajustan las transiciones en todas las secciones -->
+    <section id="presentacion" class="section-padding bg-white mx-4 mt-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 ease-in-out">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold text-lastapp-blue mb-8">Presentación</h2>
+            <h2 class="text-4xl font-bold text-primary-purple mb-8">Presentación</h2>
             <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">Conoce mi energía, mi visión y cómo mis habilidades se alinean con los objetivos de Last.app</p>
             <div class="responsive-iframe-container mx-auto max-w-4xl">
                 <iframe src="https://youtube.com/embed/tsQKoMSQX5w?si=FNis44hsL2Z4FKCX" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -114,24 +119,25 @@
         </div>
     </section>
 
-    <section id="mapas-graficos" class="section-padding bg-lastapp-light-gray mx-4 mt-8 rounded-xl shadow-lg">
+    <!-- Los fondos ahora son púrpura muy claro y gris claro -->
+    <section id="mapas-graficos" class="section-padding bg-light-bg mx-4 mt-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 ease-in-out">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-lastapp-blue text-center mb-8">Análisis Geográfico y de Mercado</h2>
+            <h2 class="text-4xl font-bold text-primary-purple text-center mb-8">Análisis Geográfico y de Mercado</h2>
             <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">Visualización de la segmentación de Madrid por sectores y la distribución de restaurantes potenciales, junto con gráficos que muestran el perfil de estos negocios.</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.02]">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mapa de Prospección en Madrid</h3>
                     <p class="text-gray-600 mb-4">Cada color representa un sector de Madrid con restaurantes ficticios. Haz clic en los marcadores para ver detalles.</p>
                     <div id="map"></div>
                     <div class="mt-4 text-sm text-gray-600">
                         <p class="font-semibold">Leyenda de Sectores:</p>
                         <ul id="sector-legend" class="list-disc list-inside">
-                            </ul>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.02] flex flex-col justify-between">
                     <div>
                         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Distribución de Restaurantes por Sector</h3>
                         <p class="text-gray-600 mb-4">Un gráfico animado que muestra la cantidad de restaurantes ficticios por cada sector definido.</p>
@@ -145,13 +151,14 @@
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.02]">
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">Restaurantes Potenciales (Ficticios)</h3>
                 <p class="text-gray-600 mb-4">Detalles de los restaurantes inventados para el ejercicio.</p>
                 <div class="overflow-x-auto">
                     <table class="min-w-full bg-white rounded-lg">
                         <thead>
-                            <tr class="bg-lastapp-blue text-white">
+                            <!-- Se cambia el fondo de la tabla al nuevo púrpura oscuro -->
+                            <tr class="bg-primary-purple text-white">
                                 <th class="py-2 px-4 text-left rounded-tl-lg">Nombre</th>
                                 <th class="py-2 px-4 text-left">Empleados</th>
                                 <th class="py-2 px-4 text-left">Tipo de Cocina</th>
@@ -159,28 +166,29 @@
                             </tr>
                         </thead>
                         <tbody id="restaurant-list">
-                            </tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="seguimiento-crm" class="section-padding bg-white mx-4 mt-8 rounded-xl shadow-lg">
+    <section id="seguimiento-crm" class="section-padding bg-white mx-4 mt-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 ease-in-out">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold text-lastapp-blue text-center mb-8">Mi Sistema de Seguimiento de Clientes</h2>
+            <h2 class="text-4xl font-bold text-primary-purple text-center mb-8">Mi Sistema de Seguimiento de Clientes</h2>
             <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">Una visión simplificada de cómo organizaría el seguimiento de mis interacciones con los clientes, con niveles de contacto y una agenda.</p>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-lastapp-bg-secondary p-6 rounded-lg shadow-md">
+                <div class="bg-secondary-bg p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.02]">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Estado de Contacto con Clientes</h3>
                     <ul class="space-y-4">
+                        <!-- Se revierten los colores de estado a la paleta original para mayor contraste y claridad -->
                         <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
                             <div>
                                 <p class="font-semibold text-lg">Restaurante La Esquina</p>
                                 <p class="text-sm text-gray-600">Contacto: Juan Pérez (Gerente)</p>
                             </div>
-                            <span class="px-3 py-1 bg-blue-200 text-blue-800 text-sm font-medium rounded-full">Demo Agendada</span>
+                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 text-sm font-medium rounded-full">Demo Agendada</span>
                         </li>
                         <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
                             <div>
@@ -194,7 +202,7 @@
                                 <p class="font-semibold text-lg">Cafetería El Sol</p>
                                 <p class="text-sm text-gray-600">Contacto: Carlos Ruiz (Encargado)</p>
                             </div>
-                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 text-sm font-medium rounded-full">Seguimiento Pendiente</span>
+                            <span class="px-3 py-1 bg-blue-200 text-blue-800 text-sm font-medium rounded-full">Seguimiento Pendiente</span>
                         </li>
                         <li class="p-4 bg-white rounded-lg shadow-sm flex items-center justify-between">
                             <div>
@@ -206,11 +214,11 @@
                     </ul>
                 </div>
 
-                <div class="bg-lastapp-bg-secondary p-6 rounded-lg shadow-md">
+                <div class="bg-secondary-bg p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.02]">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mi Agenda Semanal</h3>
                     <ul class="space-y-4">
                         <li class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="font-semibold text-lg text-lastapp-blue">Miércoles, 30 de Julio</p>
+                            <p class="font-semibold text-lg text-primary-purple">Miércoles, 30 de Julio</p>
                             <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
                                 <li>9:00 - 11:00: Prospección Zona Centro (CRM Update)</li>
                                 <li>12:00 - 14:00: Visitas Walk-in: Pizzería Napoli, Bar Tapas Madrid</li>
@@ -218,7 +226,7 @@
                             </ul>
                         </li>
                         <li class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="font-semibold text-lg text-lastapp-blue">Jueves, 31 de Julio</p>
+                            <p class="font-semibold text-lg text-primary-purple">Jueves, 31 de Julio</p>
                             <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
                                 <li>10:00 - 11:00: Demo Virtual: Restaurante La Esquina</li>
                                 <li>11:30 - 13:30: Visitas Walk-in: Cafetería El Sol, El Rincón Gastronómico</li>
@@ -226,7 +234,7 @@
                             </ul>
                         </li>
                         <li class="p-4 bg-white rounded-lg shadow-sm">
-                            <p class="font-semibold text-lg text-lastapp-blue">Viernes, 1 de Agosto</p>
+                            <p class="font-semibold text-lg text-primary-purple">Viernes, 1 de Agosto</p>
                             <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
                                 <li>9:00 - 12:00: Prospección Zona Malasaña</li>
                                 <li>12:30 - 14:30: Visitas Walk-in: La Taberna Moderna, Restaurante Vegano Verde</li>
@@ -239,13 +247,14 @@
         </div>
     </section>
 
-    <footer class="bg-lastapp-dark-gray text-white p-6 mt-8 text-center rounded-t-xl mx-4 shadow-lg">
+    <!-- El footer ahora usa el color más oscuro de la nueva paleta -->
+    <footer class="bg-dark-bg text-white p-6 mt-8 text-center rounded-t-xl mx-4 shadow-lg">
         <div class="container mx-auto">
         <p>© 2025 Nicolás Coronel. Todos los derechos reservados.</p>
         <p class="text-sm mt-2">Construido con visión para el crecimiento.</p>
         <div class="flex justify-center space-x-4 mt-4">
-            <a href="https://linkedin.com/in/nicolasjuancoronel" target="_blank" class="text-gray-400 hover:text-white transition duration-300">LinkedIn</a>
-            <a href="https://nicodatacreator.github.io" target="_blank" class="text-gray-400 hover:text-white transition duration-300">Portfolio (GitHub)</a>
+            <a href="https://linkedin.com/in/nicolasjuancoronel" target="_blank" class="text-gray-400 hover:text-white transition duration-200">LinkedIn</a>
+            <a href="https://nicodatacreator.github.io" target="_blank" class="text-gray-400 hover:text-white transition duration-200">Portfolio (GitHub)</a>
         </div>
         </div>
     </footer>
@@ -255,7 +264,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        // JavaScript para el mapa y los gráficos
+        // JavaScript para el mapa y los gráficos, actualizado para los nuevos colores
         document.addEventListener('DOMContentLoaded', () => {
             // Datos ficticios de restaurantes en Madrid y sectores
             const restaurants = [
@@ -276,16 +285,16 @@
                 { name: "El Rincón del Café", lat: 40.415000, lng: -3.702000, employees: 5, cuisine: "Cafetería", sector: "Centro" },
             ];
 
-            // Colores para los sectores (inspirados en Last.app, pero variados para el mapa)
+            // Colores para los sectores que son más claros y contrastan con los tonos de púrpura
             const sectorColors = {
-                "Centro": "var(--lastapp-blue)",
-                "Salamanca": "var(--lastapp-green)",
-                "La Latina": "#FFC107",  // Un amarillo para contraste
-                "Chueca": "#DC3545",     // Un rojo para contraste
+                "Centro": "#4299e1", // Azul
+                "Salamanca": "#38a169", // Verde
+                "La Latina": "#ecc94b", // Amarillo
+                "Chueca": "#e53e3e",     // Rojo
             };
 
             // Inicializar el mapa
-            const map = L.map('map').setView([40.416775, -3.703790], 13); // Coordenadas de Madrid, zoom 13
+            const map = L.map('map').setView([40.416775, -3.703790], 13);
 
             // Añadir capa de OpenStreetMap
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -344,24 +353,13 @@
 
             const sectorLabels = Object.keys(sectorCounts);
             const sectorData = Object.values(sectorCounts);
-            const sectorBackgroundColors = sectorLabels.map(label => {
-                // Asegurarse de obtener el valor CSS variable si está definida
-                const colorVar = sectorColors[label];
-                if (colorVar.startsWith('var(')) {
-                    return getComputedStyle(document.documentElement).getPropertyValue(colorVar.slice(4, -1));
-                }
-                return colorVar;
-            });
-
+            const sectorBackgroundColors = sectorLabels.map(label => sectorColors[label]);
 
             const cuisineLabels = Object.keys(cuisineCounts);
             const cuisineData = Object.values(cuisineCounts);
-            // Colores para tipos de cocina, puedes personalizarlos si quieres
             const cuisineBackgroundColors = [
-                getComputedStyle(document.documentElement).getPropertyValue('--lastapp-blue'),
-                getComputedStyle(document.documentElement).getPropertyValue('--lastapp-green'),
-                '#FFC107', '#DC3545', '#6F42C1', '#20C997', '#FD7E14', '#6610F2',
-                '#E83E8C', '#6C757D', '#17A2B8', '#F8F9FA'
+                '#4299e1', '#38a169', '#ecc94b', '#e53e3e', '#7F9CF5', '#D6BCFA',
+                '#319795', '#9F7AEA', '#DD6B20', '#805AD5', '#B83280', '#A0AEC0'
             ];
 
             // Gráfico de Distribución por Sector
@@ -381,7 +379,7 @@
                 options: {
                     responsive: true,
                     animation: {
-                        duration: 1000,
+                        duration: 500, // Transición más rápida
                         easing: 'easeInOutQuart'
                     },
                     plugins: {
@@ -389,18 +387,18 @@
                         title: {
                             display: true,
                             text: 'Restaurantes por Sector',
-                            color: 'var(--lastapp-text-color)'
+                            color: 'var(--text-color)'
                         }
                     },
                     scales: {
                         x: {
-                            ticks: { color: 'var(--lastapp-text-color)' }
+                            ticks: { color: 'var(--text-color)' }
                         },
                         y: {
                             beginAtZero: true,
                             ticks: {
                                 precision: 0,
-                                color: 'var(--lastapp-text-color)'
+                                color: 'var(--text-color)'
                             },
                             grid: {
                                 color: 'rgba(0,0,0,0.05)'
@@ -427,7 +425,7 @@
                 options: {
                     responsive: true,
                     animation: {
-                        duration: 1000,
+                        duration: 500, // Transición más rápida
                         easing: 'easeInOutQuart'
                     },
                     plugins: {
@@ -435,13 +433,13 @@
                             position: 'right',
                             labels: {
                                 boxWidth: 20,
-                                color: 'var(--lastapp-text-color)'
+                                color: 'var(--text-color)'
                             }
                         },
                         title: {
                             display: true,
                             text: 'Restaurantes por Tipo de Cocina',
-                            color: 'var(--lastapp-text-color)'
+                            color: 'var(--text-color)'
                         }
                     }
                 }
